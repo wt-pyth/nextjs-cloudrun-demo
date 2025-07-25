@@ -1,5 +1,5 @@
 steps:
-  # Step 1: Build and push Docker image to Artifact Registry
+  # Step 1: Build Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
@@ -9,6 +9,7 @@ steps:
         '.'
       ]
 
+  # Step 2: Push image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
@@ -16,7 +17,7 @@ steps:
         'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA'
       ]
 
-  # Step 2: Deploy image to Cloud Run
+  # Step 3: Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -27,7 +28,7 @@ steps:
         '--image',
         'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA',
         '--region',
-        'REGION',
+        'us-central1',
         '--platform',
         'managed',
         '--allow-unauthenticated',
