@@ -5,7 +5,7 @@ steps:
       [
         'build',
         '-t',
-        'REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/nextjs-cloudrun-demo:$SHORT_SHA',
+        'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA',
         '.'
       ]
 
@@ -13,7 +13,7 @@ steps:
     args:
       [
         'push',
-        'REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/nextjs-cloudrun-demo:$SHORT_SHA'
+        'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA'
       ]
 
   # Step 2: Deploy image to Cloud Run
@@ -25,7 +25,7 @@ steps:
         'deploy',
         'nextjs-cloudrun-demo',
         '--image',
-        'REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/nextjs-cloudrun-demo:$SHORT_SHA',
+        'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA',
         '--region',
         'REGION',
         '--platform',
@@ -36,4 +36,4 @@ steps:
       ]
 
 images:
-  - 'REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/nextjs-cloudrun-demo:$SHORT_SHA'
+  - 'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA'
