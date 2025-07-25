@@ -37,3 +37,6 @@ steps:
 
 images:
   - 'us-central1-docker.pkg.dev/nextjs-demo-project-467006/cloudrun-apps/nextjs-cloudrun-demo:$SHORT_SHA'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
