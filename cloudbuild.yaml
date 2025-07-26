@@ -33,7 +33,9 @@ steps:
         'managed',
         '--allow-unauthenticated',
         '--port',
-        '8080'
+        '8080',
+        '--service-account',
+        'nextjs-deployer@nextjs-demo-project-467006.iam.gserviceaccount.com'
       ]
 
 images:
